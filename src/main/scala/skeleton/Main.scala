@@ -1,8 +1,13 @@
-package com.skeleton
+package com.example
 
-object Main {
+import zio._
 
-    def main(args: Array[String]): Unit =
-        println("Hello, World!")
+object Main extends App {
+    val program: ZIO[Any, Nothing, Unit] = {
+        println("Hello, ZIO!")
+        ZIO.unit
+    }
 
+    def run(args: List[String]): ZIO[Any, Nothing, ExitCode] =
+        program.exitCode
 }
